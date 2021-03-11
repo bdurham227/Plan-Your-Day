@@ -5,16 +5,18 @@ $('#currentDay').text(currentDay);
 //added moments.js to the header
 
 var rightNow = moment();
+console.log(rightNow);
 var currentHour = $('.time-block');
 console.log(currentHour);
 
 var saveBtn = $('.saveBtn');
 console.log(saveBtn);
 
-var textArea = $('.description');
-console.log(textArea);
+var $textInput = $('input[name="hour"]');
+console.log($textInput);
 
 var hours = $('.hours')
+//creating individual variables for each time 
 
 var hour8 = $('#hour8');
 var hour9 = $('#hour9');
@@ -33,9 +35,45 @@ var hour17 = $('#hour17');
 
 
 
-saveBtn.on('click', function (){
-    var savedItem = $()
-})
+
+//function that when a user inputs text 
+
+function handleFormSubmit(event){
+    event.preventDefault();
+
+    var typedEl = $('input:text');
+    var written = [];
+
+    $.each(typedEl, function(){
+        written.push($(this).val());
+    });
+}
+
+saveBtn.on('submit', function(event) {
+    event.preventDefault();
+
+var textValue = {
+    content: $textInput.val()
+}; 
+
+localStorage.setItem("textValue", JSON.stringify(textValue));
+handleFormSubmit();
+renderText();
+});
+
+function renderText() {
+    var lastInputText = JSON.parse(localStorage.getItem("textValue"));
+    if (lastInputText !== null) {
+        $('input[class="description"]').text(lastInputText.textValue.content);
+
+    }
+}
+
+
+
+
+
+
 
 //create two variables for time
 //one variable for current time to compare against another variable for the current time
