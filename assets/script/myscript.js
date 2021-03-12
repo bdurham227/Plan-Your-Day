@@ -12,11 +12,27 @@ var currentDayUpdater = function () {
 
 $(document).ready(function(){
     setInterval(currentDayUpdater, 1000);
-    saveBtn.on('click', function () {
+    $('.saveBtn').on('click', function () {
+        //create a variable called text
+        //$(this) refers to what activated the code or what started THIS sequence of events
+        //after console logging $(this) I see that it is the savebtn obviously because we put an event listener on it
+        //but it was great to see it in the log
+        //I then played around with the consolelog
+        //trying to think of ways to access it I went and reviewed and looked up Jquery dom traversing
+        //i console logged parent and saw that the parent was the div with the time-block class
+        //knowing this i consoled logged if $(this) had any siblings and it did, .description
+        //know that now Im thinking well we want its value right bc we see that the div with class hour is a sibling
+        //but its not a textarea and isnt really relevant to what we are trying to do
+        //console.log($(this));
+        //console.log($(this).parent());
+       // console.log($(this).siblings());
+
         var text = $(this).siblings('.description').val();
+        //know what $(this)'s parent was the timeblock div I know that it had a class and an id. the class is on every single other timeblock
+        //so its not helpful for trying to store unique inputs so I knew we had to get the id attribute
         var time = $(this).parent().attr('id');
-        console.log(text);
-        console.log(time);
+        //console.log(text.siblings());
+        //console.log(text.parent());
         //var time = $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss A'));
         //console.log(time);
    localStorage.setItem(time, text);
@@ -111,16 +127,44 @@ function checkTime() {
     }
 
 }
+
 checkTime();
 
+
 });
+$('#hour8 .description').val(localStorage.getItem('#hour8'));
+$('#hour9 .description').val(localStorage.getItem('#hour9'));
+$('#hour10 .description').val(localStorage.getItem('#hour10'));
+$('#hour11 .description').val(localStorage.getItem('#hour11'));
+$('#hour12 .description').val(localStorage.getItem('#hour12'));
+$('#hour13 .description').val(localStorage.getItem('#hour13'));
+$('#hour14 .description').val(localStorage.getItem('#hour14'));
+$('#hour15 .description').val(localStorage.getItem('#hour15'));
+$('#hour16 .description').val(localStorage.getItem('#hour16'));
+$('#hour17 .description').val(localStorage.getItem('#hour17'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //need to add event listener for saveBtn and sync with local storage
 //create local storage for user inputs in the textarea at least get it to setItems into the local storage
 //probably need to create a function with a time interval (setInterval) to keep the countTime function relevant or up to date
 
-var saveBtn = $('.saveBtn');
-console.log(saveBtn);
+//var saveBtn = $('.saveBtn');
+//console.log(saveBtn);
 
 
 var hours = $('.hours')
