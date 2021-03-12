@@ -1,28 +1,27 @@
 //function displaying current day and time using moments.js
 
 
-    var currentDay = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
-    $('#currentDay').text(currentDay);
+    //var currentDay = moment().format("dddd, MMMM Do YYYY, h:mm:ss A");
+
+var currentDayUpdater = function () {
+    $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss A'));
+};
+
+$(document).ready(function(){
+    setInterval(currentDayUpdater, 1000);
 
 
-
-   /* if (now > 8) {
-        $("#comment9am").addClass("past");
-      } else if (now >= 8 && now < 9) {
-        $("#comment9am").addClass("present");
-      } else if (now < 9) {
-        $("#comment9am").addClass("future");
-      }*/
-    
 
 
 
 //to dos
+//might use these variables for local storage? not sure yet
 var timeSlot = $('.description');
 var currentHour = $('.time-block');
 //console.log(currentHour);
 var rightNow = moment().hour();
 //console.log(rightNow);
+
 
 
 function checkTime() {
@@ -107,33 +106,12 @@ function checkTime() {
         $('#hour17').addClass('future');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 checkTime();
-
-
+});
+//need to add event listener for saveBtn and sync with local storage
+//create local storage for user inputs in the textarea at least get it to setItems into the local storage
+//probably need to create a function with a time interval (setInterval) to keep the countTime function relevant or up to date
 
 var saveBtn = $('.saveBtn');
 console.log(saveBtn);
@@ -161,6 +139,16 @@ var hour15 = $('#hour15');
 var hour16 = $('#hour16');
 var hour17 = $('#hour17');
 
+
+/*var allTimeBlocks = {
+    hour8: $('#hour8').val();
+    hour9: $('#hour9');
+    hour10: $('#hour10');
+}
+
+for (var i = 0; i < allTimeBlocks.length; i++) {
+
+}*/
 
 
 
