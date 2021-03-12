@@ -12,18 +12,19 @@ var currentDayUpdater = function () {
 
 $(document).ready(function(){
     setInterval(currentDayUpdater, 1000);
+    saveBtn.on('click', function () {
+        var text = $(this).siblings('.description').val();
+        var time = $(this).parent().attr('id');
+        console.log(text);
+        console.log(time);
+        //var time = $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss A'));
+        //console.log(time);
+   localStorage.setItem(time, text);
+    })
+    
 
-
-
-
-
-//to dos
-//might use these variables for local storage? not sure yet
-var timeSlot = $('.description');
-var currentHour = $('.time-block');
-//console.log(currentHour);
 var rightNow = moment().hour();
-//console.log(rightNow);
+
 
 
 
@@ -111,6 +112,7 @@ function checkTime() {
 
 }
 checkTime();
+
 });
 
 //need to add event listener for saveBtn and sync with local storage
@@ -125,7 +127,7 @@ var hours = $('.hours')
 //creating individual variables for each time 
 
 
-var timeBlock = $('.time-block');
+//var timeBlock = $('.time-block');
 //timeBlock.addClass('block').css('background-color: blue;')
 
 
@@ -157,16 +159,15 @@ saveBtn.on('click', function (event) {
 localStorage.setItem('hour8', hour8);
 })*/
 
-var hour8Input = $('#hour8Text');
+/*var hour8Input = $('#hour8Text');
+var hour9Input = $('#hour9Text');
+var hour10Input = $('#hour10Text');
 
 
 
 
-
-
-
-
-var userInput = $('.description');
+var userInput1 = $('.description');
+var userInput2 = $('.description1');
 
 
 
@@ -177,16 +178,26 @@ var userInput = $('.description');
 
 function renderInput() {
     var hour8 = localStorage.getItem('hour8');
-    userInput.text(hour8);
+    var hour9 = localStorage.getItem('hour9');
+    var hour10 = localStorage.getItem('hour10');
+    userInput1.text(hour8);
+    userInput2.text(hour9);
+    userInput.text(hour10);
+
+
 }
 saveBtn.on('click', function(event) {
     event.preventDefault();
 
     var hour8 = $('#hour8Text').val();
+    var hour9 = $('#hour9Text').val();
+    var hour10 = $('#hour10Text').val();
 
     localStorage.setItem('hour8', hour8);
+    localStorage.setItem('hour9', hour9);
+    localStorage.setItem('hour10', hour10);
 
-})
+})*/
 
 
 
@@ -195,15 +206,15 @@ saveBtn.on('click', function(event) {
 
 
 //console.log(hour8);
-var hour9 = $('#hour9');
-var hour10 = $('#hour10');
-var hour11 = $('#hour11');
+//var hour9 = $('#hour9');
+//var hour10 = $('#hour10');
+/*var hour11 = $('#hour11');
 var hour12 = $('#hour12');
 var hour13 = $('#hour13');
 var hour14 = $('#hour14');
 var hour15 = $('#hour15');
 var hour16 = $('#hour16');
-var hour17 = $('#hour17');
+var hour17 = $('#hour17');*/
 
 
 
