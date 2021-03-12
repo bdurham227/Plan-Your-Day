@@ -36,8 +36,21 @@ $(document).ready(function(){
         //var time = $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss A'));
         //console.log(time);
    localStorage.setItem(time, text);
+   
+    sessionStorage.setItem(time, text);
+    console.log(sessionStorage);
+
+   window.onstorage = event => {
+       if (event.key != 'now') {
+           return;
+       } else {
+           sessionStorage.getItem(text, time);
+       }
+   }
+   
+   
     })
-    
+  
 
 var rightNow = moment().hour();
 
@@ -142,6 +155,10 @@ $('#hour14 .description').val(localStorage.getItem('#hour14'));
 $('#hour15 .description').val(localStorage.getItem('#hour15'));
 $('#hour16 .description').val(localStorage.getItem('#hour16'));
 $('#hour17 .description').val(localStorage.getItem('#hour17'));
+
+//let field = $('.description');
+
+
 
 
 
