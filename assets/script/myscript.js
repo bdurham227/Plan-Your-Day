@@ -2,6 +2,9 @@
 
 
     //var currentDay = moment().format("dddd, MMMM Do YYYY, h:mm:ss A");
+// this variable/function wombo combo is using Jquery selector to get the id currentDay from the html
+//its setting its text value to the formatted time from moments
+//then a jquery ready function is declared and sets an interval to 1000ms to re-run the function above
 
 var currentDayUpdater = function () {
     $('#currentDay').text(moment().format('MMMM Do YYYY, h:mm:ss A'));
@@ -109,6 +112,7 @@ function checkTime() {
 }
 checkTime();
 });
+
 //need to add event listener for saveBtn and sync with local storage
 //create local storage for user inputs in the textarea at least get it to setItems into the local storage
 //probably need to create a function with a time interval (setInterval) to keep the countTime function relevant or up to date
@@ -117,17 +121,79 @@ var saveBtn = $('.saveBtn');
 console.log(saveBtn);
 
 
-
 var hours = $('.hours')
 //creating individual variables for each time 
 
 
 var timeBlock = $('.time-block');
-timeBlock.addClass('block').css('background-color: blue;')
+//timeBlock.addClass('block').css('background-color: blue;')
 
-var hour8 = $('#hour8');
+
 
 //hour8 = moment().subtract('hours', " h:mm:ss a");
+//console.log(hour8);
+/*var hour8 = localStorage.getItem('description1input');
+console.log(hour8);
+
+
+saveBtn.on('click', function () {
+    //hour8.text('.description1input');
+    hour8.text(hour8);
+    localStorage.setItem('description1input', hour8);
+})*/
+ 
+
+/*var hour8Input = $('#hour8');
+var hour8TextInput = ('.description1input');
+
+
+function renderInput () {
+    var hour8 = localStorage.getItem('#hour8');
+    hour8TextInput.text(hour8);
+}
+saveBtn.on('click', function (event) {
+    event.preventDefault();
+    var hour8 = $('#hour8').val();
+localStorage.setItem('hour8', hour8);
+})*/
+
+var hour8Input = $('#hour8Text');
+
+
+
+
+
+
+
+
+var userInput = $('.description');
+
+
+
+
+
+
+
+
+function renderInput() {
+    var hour8 = localStorage.getItem('hour8');
+    userInput.text(hour8);
+}
+saveBtn.on('click', function(event) {
+    event.preventDefault();
+
+    var hour8 = $('#hour8Text').val();
+
+    localStorage.setItem('hour8', hour8);
+
+})
+
+
+
+
+
+
+
 //console.log(hour8);
 var hour9 = $('#hour9');
 var hour10 = $('#hour10');
@@ -138,6 +204,56 @@ var hour14 = $('#hour14');
 var hour15 = $('#hour15');
 var hour16 = $('#hour16');
 var hour17 = $('#hour17');
+
+
+
+
+
+
+
+
+/*for (var i = 0; i < 11; i++) {
+    $('.description' + i + 'input').val(localStorage.getItem("description" + i));
+    
+}
+
+
+function saveText() {
+  
+    for (var i = 8; i < 18; i++) {
+        localStorage.setItem("description" + i, $('.description' + i + 'input').val());
+        console.log(hour8);
+    }
+};
+
+
+
+saveBtn.on('click', saveText);*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*var allTimeBlocks = {
