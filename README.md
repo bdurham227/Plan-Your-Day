@@ -25,15 +25,15 @@ Live page view:
 
 
 ​
-​![ScreenShot](assets\images\codequizimage3.png "ScreenShot")
+​![ScreenShot](assets/images/workdayschedule.png "ScreenShot")
 
-Screenshot of Scheduler live:
+Screenshot of Scheduler saving live inputs even on refresh:
 
 ![ScreenShot](assets\images\codequizimg2.png "ScreenShot")
 
-End Game View:
 
-![ScreenShot](assets\images\codequizimage1.png "ScreenShot")
+
+
 ​
 
 <a name="contrib"></a>
