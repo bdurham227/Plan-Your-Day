@@ -52,6 +52,7 @@ function checkTime() {
     
     var rightNow = moment().hour();
     //originally chained a ton of if else statements going to try something a bit cleaner
+    //for each loops through each time block get $(this) or timeblock by and splits
     $('.time-block').each(function () {
         var timeSlots = parseInt($(this).attr("id").split("hour")[1]);
         //console.log(timeSlots);
@@ -62,6 +63,7 @@ function checkTime() {
         else if (timeSlots === rightNow)
          {
             $(this).removeClass('past');
+            $(this).removeClass('future');
             $(this).addClass('present');
         } 
         else {
@@ -73,6 +75,7 @@ function checkTime() {
 
 
 }
+//getting from local storage
 $('#hour8 .description').val(localStorage.getItem('hour8'));
 $('#hour9 .description').val(localStorage.getItem('hour9'));
 $('#hour10 .description').val(localStorage.getItem('hour10'));
@@ -88,7 +91,7 @@ $('#hour17 .description').val(localStorage.getItem('hour17'));
 checkTime();
 
 
-});
+})
 //window.onload = function () {
     //checkTime();
 //}

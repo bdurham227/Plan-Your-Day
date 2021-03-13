@@ -27,13 +27,13 @@ Live page view:
 ​
 ​![ScreenShot](assets/images/workdayschedule.png "ScreenShot")
 
-Screenshot of Scheduler saving live inputs even on refresh:
+The Scheduler will save live inputs even on refresh:
 
-![ScreenShot](assets\images\codequizimg2.png "ScreenShot")
-
-
+![Planyourday demo](assets/images/planyourday.gif)
 
 
+
+*note the time of day this was taken at was passed the time-blocks set in the code*
 ​
 
 <a name="contrib"></a>
