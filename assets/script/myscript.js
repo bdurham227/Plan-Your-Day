@@ -11,6 +11,7 @@ var currentDayUpdater = function () {
 };
 
 $(document).ready(function(){
+ 
     setInterval(currentDayUpdater, 1000);
     $('.saveBtn').on('click', function () {
         //create a variable called text
@@ -37,27 +38,19 @@ $(document).ready(function(){
         //console.log(time);
    localStorage.setItem(time, text);
    
-    sessionStorage.setItem(time, text);
-    console.log(sessionStorage);
-
-   window.onstorage = event => {
-       if (event.key != 'now') {
-           return;
-       } else {
-           sessionStorage.getItem(text, time);
-       }
-   }
-   
-   
     })
-  
 
-var rightNow = moment().hour();
+   
+  
+   
+
 
 
 
 
 function checkTime() {
+    
+    var rightNow = moment().hour();
     //=============0800=================
     if (rightNow > 7 ) {
         $('#hour8').addClass("past");
@@ -138,13 +131,6 @@ function checkTime() {
     } else {
         $('#hour17').addClass('future');
     }
-
-}
-
-checkTime();
-
-
-});
 $('#hour8 .description').val(localStorage.getItem('#hour8'));
 $('#hour9 .description').val(localStorage.getItem('#hour9'));
 $('#hour10 .description').val(localStorage.getItem('#hour10'));
@@ -155,6 +141,17 @@ $('#hour14 .description').val(localStorage.getItem('#hour14'));
 $('#hour15 .description').val(localStorage.getItem('#hour15'));
 $('#hour16 .description').val(localStorage.getItem('#hour16'));
 $('#hour17 .description').val(localStorage.getItem('#hour17'));
+
+}
+
+
+checkTime();
+
+
+});
+window.onload = function () {
+    checkTime();
+}
 
 //let field = $('.description');
 
